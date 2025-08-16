@@ -31,6 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "my_keypad.h"
 /* USER CODE END Includes */
 
@@ -49,6 +50,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -59,6 +62,7 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define USER_Btn_Pin GPIO_PIN_13
 #define USER_Btn_GPIO_Port GPIOC
+#define USER_Btn_EXTI_IRQn EXTI15_10_IRQn
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
 #define RMII_MDC_Pin GPIO_PIN_1
@@ -75,6 +79,16 @@ void Error_Handler(void);
 #define RMII_RXD1_GPIO_Port GPIOC
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
+#define KEYPAD_5_DR_Pin GPIO_PIN_10
+#define KEYPAD_5_DR_GPIO_Port GPIOE
+#define KEYPAD_4_RD_Pin GPIO_PIN_12
+#define KEYPAD_4_RD_GPIO_Port GPIOE
+#define KEYPAD_1_RD_Pin GPIO_PIN_13
+#define KEYPAD_1_RD_GPIO_Port GPIOE
+#define KEYPAD_3_RD_Pin GPIO_PIN_14
+#define KEYPAD_3_RD_GPIO_Port GPIOE
+#define KEYPAD_2_RD_Pin GPIO_PIN_15
+#define KEYPAD_2_RD_GPIO_Port GPIOE
 #define RMII_TXD1_Pin GPIO_PIN_13
 #define RMII_TXD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
@@ -83,6 +97,12 @@ void Error_Handler(void);
 #define STLK_RX_GPIO_Port GPIOD
 #define STLK_TX_Pin GPIO_PIN_9
 #define STLK_TX_GPIO_Port GPIOD
+#define KEYPAD_6_DR_Pin GPIO_PIN_11
+#define KEYPAD_6_DR_GPIO_Port GPIOD
+#define KEYPAD_7_DR_Pin GPIO_PIN_12
+#define KEYPAD_7_DR_GPIO_Port GPIOD
+#define KEYPAD_8_DR_Pin GPIO_PIN_13
+#define KEYPAD_8_DR_GPIO_Port GPIOD
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7
